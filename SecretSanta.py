@@ -48,14 +48,16 @@ if __name__ == "__main__":
             if os.path.exists("%s.txt" % key):
                 os.remove("%s.txt" % key)
             f = open("%s.txt" % key, "w+", encoding = "utf-8")
-            f.write("Hello %s.\nYou will buy a present for %s.\nHave fun!\n" % (key, val))
+            f.write("Hello %s.\nYou will buy a present for %s.\nHave fun!\n" %\
+                    (key, val))
             try:
                 with open("hints/%s.txt" %val, encoding = "utf-8") as hintfile:
-                    f.write("\n%s has given this hint for his/her present:\n" %val)
+                    f.write("\n%s has given this hint for his/her present:\n" \
+                            % val)
                     f.write(hintfile.read())
                     hintfile.close()
             except:
-                f.write("\n%s has not given a hint...\n" %val)
+                f.write("\n%s has not given a hint...\n" % val)
             f.close()
 
     print("Done. Don't forget to run unix2dos on the files!")
